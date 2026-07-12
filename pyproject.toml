@@ -3,9 +3,9 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "transformer-explorer"
+name = "enterprise-python-template"
 version = "0.1.0"
-description = "Explore and visualize Transformer tokenization, embeddings, attention, and semantic similarity."
+description = "Reusable enterprise-grade Python project template with modern tooling, testing, CI, and Docker."
 readme = "README.md"
 requires-python = ">=3.12"
 license = "MIT"
@@ -14,10 +14,6 @@ authors = [
 ]
 
 dependencies = [
-    "transformers>=4.50",
-    "torch>=2.7",
-    "numpy>=2.0",
-    "matplotlib>=3.10",
     "pydantic-settings>=2.10"
 ]
 
@@ -26,7 +22,8 @@ dev = [
     "black>=25.0",
     "ruff>=0.12",
     "mypy>=1.17",
-    "pytest>=8.4",
+    "pytest>=9.0",
+    "pytest-cov>=7.0",
     "pre-commit>=4.2",
     "build>=1.3"
 ]
