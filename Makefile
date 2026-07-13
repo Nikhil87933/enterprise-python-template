@@ -1,16 +1,17 @@
-.PHONY: install lint lint-fix format check-format typecheck test coverage check fix clean
+.PHONY: install format lint lint-fix check-format typecheck test coverage check fix clean
 
 install:
 	pip install -e ".[dev]"
+	pre-commit install
+
+format:
+	black .
 
 lint:
 	ruff check .
 
 lint-fix:
 	ruff check . --fix
-
-format:
-	black .
 
 check-format:
 	black --check .
@@ -29,6 +30,6 @@ check: lint check-format typecheck test
 fix: format lint-fix
 
 clean:
-	rm -rf .pytest_cache .mypy_cache .ruff_cache build dist htmlcov .coverage *.egg-info
+	rm -rf .pytest_cache .mypy_cache .ruff_cache htmlcov .coverage build dist *.egg-info
 	find . -type d -name "__pycache__" -exec rm -rf {} +
 	find . -type f -name "*.pyc" -delete
